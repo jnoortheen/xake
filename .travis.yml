@@ -1,19 +1,36 @@
+dist: xenial
+
 language: python
-matrix:
-  include:
-    - python: 2.7
-      env: TOXENV=py27
-    - python: 3.6
-      env: TOXENV=py36
-    - python: 3.7
-      env: TOXENV=py37
-    - python: 3.8
-      env: TOXENV=py38
+python:
+  - 3.6
 
-# command to install dependencies
+cache:
+  pip: true
+  directories:
+    - ${VIRTUAL_ENV}
+
+env:
+  global:
+    - RANDOM_SEED=0
+
+before_install:
+  - curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+  - source $HOME/.poetry/env
+  - make doctor
+
 install:
-  - pip install tox
+  - make install
 
-# command to run tests
 script:
-  - tox
+  - make check
+  - make test
+
+after_success:
+  - pip install coveralls scrutinizer-ocular
+  - coveralls
+  - ocular
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
