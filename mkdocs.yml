@@ -1,0 +1,20 @@
+site_name: xake
+site_description: Make's alternative using Python based Xonsh shell
+site_author: Noortheen Raja
+
+repo_url: https://github.com/jnoortheen/xake
+edit_uri: https://github.com/jnoortheen/xake/edit/master/docs
+
+theme: readthedocs
+
+markdown_extensions:
+  - codehilite:
+      linenums: true
+
+nav:
+- Home: index.md
+- Advanced: advanced.md
+- About:
+  - Release Notes: about/changelog.md
+  - Contributing: about/contributing.md
+  - License: about/license.md

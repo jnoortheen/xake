@@ -1,3 +1,17 @@
+[run]
+
+branch = true
+
+data_file = .cache/coverage
+
+omit =
+    .venv/*
+    */tests/*
+    */__main__.py
+
 [report]
 show_missing = True
 skip_covered = True
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
