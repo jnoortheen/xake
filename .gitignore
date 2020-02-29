@@ -32,7 +32,7 @@ Icon*
 # Testing and coverage results
 /.coverage
 /.coverage.*
-/htmlcov/
+htmlcov/
 
 # Build and release directories
 /build/

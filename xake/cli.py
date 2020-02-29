@@ -1,21 +1,12 @@
-"""A sample CLI."""
-
-import click
-import log
-
-from . import utils
+from argparse import ArgumentParser
 
 
-@click.command()
-@click.argument("feet")
-def main(feet=None):
-    log.init()
-
-    meters = utils.feet_to_meters(feet)
-
-    if meters is not None:
-        click.echo(meters)
+parser = ArgumentParser()
 
 
-if __name__ == "__main__":  # pragma: no cover
+def main():
+    parser.parse_args()
+
+
+if __name__ == "__main__":
     main()
